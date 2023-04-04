@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import React from 'react'
+import CrcComponent from './views/crc'
 
-import CrcComponent from './components/crc'
 function App() {
   return (
-    <div className='container'>
+    <div className="container">
       <CrcComponent />
-      <p className='read-the-docs'>
+      <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </div>
