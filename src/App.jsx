@@ -1,4 +1,5 @@
 import React from 'react'
+import { Toaster } from 'react-hot-toast'
 import CrcComponent from './views/crc'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Toaster />
     </div>
   )
 }

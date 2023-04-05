@@ -7,10 +7,10 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "paths": {
+      "@src/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@utils/*": ["./src/utils/*"],
-      "@public/*": ["./public/*"],
-      
+      "@public/*": ["./public/*"]
     }
   },
   "include": ["src"],
