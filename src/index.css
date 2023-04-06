@@ -13,10 +13,10 @@
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* display: flex; */
+  /* place-items: center; */
+  /* min-width: 320px;
+  min-height: 100vh; */
 }
 
 h1 {
@@ -44,14 +44,29 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.btn-danger {
+  background: var(--primary-color-error);
+  margin-bottom: 1rem;
+}
+
 .container {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  /* width: 100vw; */
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
+}
+
+/* crc */
+.crc {
+  min-width: 500px;
+}
+
+.crc__title {
+  font-weight: bold;
 }
 
 .card {
@@ -106,6 +121,57 @@ button:focus-visible {
   text-transform: capitalize;
   font-weight: bold;
   color: var(--primary-color-error);
+}
+
+/* simulator */
+
+.simulator {
+  width: 100%;
+}
+
+.simulator__content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px solid var(--primary-color);
+  border-radius: 1rem;
+}
+
+/* divition */
+
+.divition {
+  padding: 1rem;
+  min-width: 500px;
+}
+
+.divition p {
+  font-weight: bold;
+}
+.divition strong {
+  margin-right: 0.4rem;
+}
+
+.divition__header {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.divition:last-child {
+  border-left: 2px solid var(--primary-color);
+}
+
+.divition__title {
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.divition__subtitle {
+  display: block;
+}
+
+.divition__main--title {
+  font-weight: bold;
+  font-size: larger;
 }
 
 .read-the-docs {

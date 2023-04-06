@@ -29,16 +29,37 @@ export function useDefaultValues() {
         DxBinary.concat('0'.repeat(GxBinary.length - 1)),
         GxBinary
       )
+
       // receptor
       const respReceptor = binaryDivision(
-        DxBinary.concat(respEmitter.complement),
+        DxBinary.concat(
+          respEmitter.complement.split('').slice(-GxBinary.length).join('')
+        ),
         GxBinary
       )
 
-      console.log({ respEmitter, respReceptor })
       // save redex store
-      dispatch(setEmitter({ ...respEmitter, Gx: GxBinary, Dx: DxBinary }))
-      dispatch(setReceptor({ ...respReceptor, Gx: GxBinary, Dx: DxBinary }))
+      dispatch(
+        setEmitter({
+          ...respEmitter,
+          Gx,
+          Dx,
+          GxBinary,
+          DxBinary: DxBinary.concat('0'.repeat(GxBinary.length - 1)),
+        })
+      )
+
+      dispatch(
+        setReceptor({
+          ...respReceptor,
+          Gx,
+          Dx,
+          GxBinary,
+          DxBinary: DxBinary.concat(
+            respEmitter.complement.split('').slice(-GxBinary.length).join('')
+          ),
+        })
+      )
     } catch (error) {
       Notify(`${error}`, 'error')
     }
