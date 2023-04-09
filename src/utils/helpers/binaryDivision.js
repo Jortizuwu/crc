@@ -1,78 +1,43 @@
-// function binaryDivision(dividend, divisor) {
-//   // Convertir los números binarios a enteros
-//   const a = parseInt(dividend, 2)
-//   const b = parseInt(divisor, 2)
-//   let remainder = a
-//   const arrValues = []
-//   for (let i = 31; i >= 0; i--) {
-//     if (remainder >> i >= b) {
-//       remainder ^= b << i
-//       console.log(remainder)
-//       arrValues.push(remainder.toString(2))
-//     }
-//   }
-
-//   // Convertir el residuo a binario y retornarlo
-//   return { complement: remainder.toString(2), arrValues }
-// }
-
-function binaryDivision(dividend, divisor) {
+function binaryDivision(dividend = '', divisor = '') {
   // Convertir los números binarios a enteros
   const a = parseInt(dividend, 2)
   const b = parseInt(divisor, 2)
   let remainder = a
   const arrValues = []
-
-  // Obtener la longitud del dividendo en binario
-  const n = dividend.length
-
-  for (let i = n - 1; i >= 0; i--) {
+  for (let i = a; i >= 0; i--) {
     if (remainder >> i >= b) {
       remainder ^= b << i
+      console.log(remainder)
       arrValues.push(remainder.toString(2))
     }
   }
-
-  // Si el bit más significativo del residuo es 1, hacer otra operación XOR
-  if (remainder >> (n - 1) === 1) {
-    remainder ^= b << (n - 1)
-    arrValues.push(remainder.toString(2))
+  if (remainder === 1 || remainder === 0) {
+    remainder = '000' + remainder.toString(2)
+  } else if (remainder === 2 || remainder === 3) {
+    remainder = '00' + remainder.toString(2)
+  } else if (remainder === 4) {
+    remainder = '0' + remainder.toString(2)
   }
-
   // Convertir el residuo a binario y retornarlo
   return { complement: remainder.toString(2), arrValues }
 }
 
-// function binaryDivision(dividend = '', divisor = '') {
-//   let quotient = 0
-//   let remainder = 0
-//   let bitIndex = 0
+// function binaryDivision(dividend, divisor) {
+//   let remainder = dividend
 //   const arrValues = []
 
-//   while (dividend > 0) {
-//     remainder = (remainder << 1) | (dividend & 1)
-//     quotient = quotient << 1
-//     if (remainder >= divisor) {
-//       quotient = quotient | 1
-//       remainder = remainder ^ divisor
-//     }
-//     dividend = dividend >> 1
-//     bitIndex++
-//     console.log(dividend.toString(2))
-//     arrValues.push(dividend.toString(2))
+//   while (remainder.length >= divisor.length) {
+//     // let shiftAmount = remainder.length - divisor.length
+//     let shiftedDivisor = divisor.padEnd(remainder.length, '0')
+//     console.log(shiftedDivisor)
+//     remainder = (parseInt(remainder, 2) ^ parseInt(shiftedDivisor, 2)).toString(
+//       2
+//     )
+//     arrValues.push(remainder)
+//     // remainder = remainder.replace(/^0+/, '')
 //   }
-//   quotient = reverseBits(quotient, bitIndex)
 
-//   return { complement: remainder.toString(2), arrValues: arrValues }
-// }
-
-// function reverseBits(num, bitCount) {
-//   let reversedNum = 0
-//   for (let i = 0; i < bitCount; i++) {
-//     reversedNum = (reversedNum << 1) | (num & 1)
-//     num = num >> 1
-//   }
-//   return reversedNum
+//   return { complement: remainder, arrValues }
 // }
 
 export default binaryDivision

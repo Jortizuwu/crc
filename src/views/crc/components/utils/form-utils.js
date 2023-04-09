@@ -33,7 +33,10 @@ export function useDefaultValues() {
       // receptor
       const respReceptor = binaryDivision(
         DxBinary.concat(
-          respEmitter.complement.split('').slice(-GxBinary.length).join('')
+          respEmitter.complement
+            .split('')
+            .slice(-(GxBinary.length - 1))
+            .join('')
         ),
         GxBinary
       )
@@ -56,7 +59,10 @@ export function useDefaultValues() {
           Dx,
           GxBinary,
           DxBinary: DxBinary.concat(
-            respEmitter.complement.split('').slice(-GxBinary.length).join('')
+            respEmitter.complement
+              .split('')
+              .slice(-(GxBinary.length - 1))
+              .join('')
           ),
         })
       )

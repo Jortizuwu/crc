@@ -23,7 +23,6 @@ const Divition = ({ name, data }) => {
           {data.GxBinary}
         </p>
       </section>
-
       <div className="divition__main">
         <h4 className="divition__main--title">{name}</h4>
         <TypewriterEffect
