@@ -17,6 +17,7 @@ const initialState = {
     complement: '',
     arrValues: [],
   },
+  finishEmmitter: false,
 }
 
 export const crcSlice = createSlice({
@@ -28,6 +29,9 @@ export const crcSlice = createSlice({
     },
     setReceptor: (state, payload) => {
       state.receptor = payload.payload
+    },
+    setFinishEmmitter: (state) => {
+      state.finishEmmitter = true
     },
     restart: (state) => {
       state.receptor = {
@@ -46,10 +50,12 @@ export const crcSlice = createSlice({
         complement: '',
         arrValues: [],
       }
+      state.finishEmmitter = false
     },
   },
 })
 
-export const { setEmitter, setReceptor, restart } = crcSlice.actions
+export const { setEmitter, setReceptor, setFinishEmmitter, restart } =
+  crcSlice.actions
 
 export default crcSlice.reducer

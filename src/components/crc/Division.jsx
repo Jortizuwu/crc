@@ -26,6 +26,7 @@ const Divition = ({ name, data }) => {
       <div className="divition__main">
         <h4 className="divition__main--title">{name}</h4>
         <TypewriterEffect
+          name={name}
           words={data.arrValues}
           divident={data.GxBinary}
           complement={data.complement}

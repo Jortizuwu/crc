@@ -1,9 +1,11 @@
 import React from 'react'
 import Typewriter from 'typewriter-effect'
 import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux'
+import { setFinishEmmitter } from '@src/redux/features/crc/crcSlice'
 
-const TypewriterEffect = ({ words, divident, complement }) => {
-  // const [content, setContent] = useState('')
+const TypewriterEffect = ({ words, divident, complement, name }) => {
+  const dispacth = useDispatch()
 
   return (
     <Typewriter
@@ -13,6 +15,9 @@ const TypewriterEffect = ({ words, divident, complement }) => {
             typewriter.typeString(
               `${word} <br/> <p className="divition__subtitle">crc: ${complement}</p>`
             )
+            if (name === 'emitter') {
+              dispacth(setFinishEmmitter())
+            }
           } else {
             typewriter.typeString(
               `${word}<br/> ${divident} <br/> <div>${'-'.repeat(
@@ -37,6 +42,7 @@ TypewriterEffect.propTypes = {
   words: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   divident: PropTypes.string,
   complement: PropTypes.string,
+  name: PropTypes.string,
 }
 
 export default TypewriterEffect
