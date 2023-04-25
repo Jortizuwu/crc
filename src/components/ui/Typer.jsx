@@ -1,22 +1,27 @@
 import React from 'react'
 import Typewriter from 'typewriter-effect'
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
-import { setFinishEmmitter } from '@src/redux/features/crc/crcSlice'
 
 const TypewriterEffect = ({ words, divident, complement, name }) => {
-  const dispacth = useDispatch()
-
   return (
     <Typewriter
       onInit={(typewriter) => {
         words.forEach((word, index) => {
           if (index === words.length - 1) {
-            typewriter.typeString(
-              `${word} <br/> <p className="divition__subtitle">crc: ${complement}</p>`
-            )
             if (name === 'emitter') {
-              dispacth(setFinishEmmitter())
+              typewriter.typeString(
+                `${word} <br/> <h4 className="divition__subtitle">crc: ${complement}</h2>`
+              )
+            } else {
+              if (complement.includes('1')) {
+                typewriter.typeString(
+                  `${word} <br/> <p className="divition__subtitle">crc: ${complement} el mensaje no fue enviado 💀</p>`
+                )
+              } else {
+                typewriter.typeString(
+                  `${word} <br/> <div className="crc_finish"> <p className="divition__subtitle">crc: ${complement} mensaje enviado correctamente 😳</p> </div>`
+                )
+              }
             }
           } else {
             typewriter.typeString(

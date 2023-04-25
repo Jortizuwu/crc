@@ -4,9 +4,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Simulator = () => {
-  const { emitter, receptor, finishEmmitter } = useSelector(
-    (state) => state.crc
-  )
+  const { emitter, receptor } = useSelector((state) => state.crc)
   const dispatch = useDispatch()
 
   const handleRest = () => {
@@ -20,7 +18,7 @@ const Simulator = () => {
       </button>
       <div className="simulator__content">
         <Divition data={emitter} name="emitter" />
-        {finishEmmitter && <Divition data={receptor} name="receptor" />}
+        <Divition data={receptor} name="receptor" />
       </div>
     </div>
   )

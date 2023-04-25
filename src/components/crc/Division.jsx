@@ -7,21 +7,21 @@ const Divition = ({ name, data }) => {
     <section className="divition">
       <section className="divition__header">
         <h3 className="divition__title">data {name}</h3>
-        <p className="divition__subtitle">
+        <h3 className="divition__subtitle">
           <strong>D(x):</strong> {data?.Dx}
-        </p>
-        <p className="divition__subtitle">
+        </h3>
+        <h3 className="divition__subtitle">
           <strong>D:</strong>
           {data.DxBinary}
-        </p>
-        <p className="divition__subtitle">
+        </h3>
+        <h3 className="divition__subtitle">
           <strong>G(x):</strong>
           {data?.Gx}
-        </p>
-        <p className="divition__subtitle">
+        </h3>
+        <h3 className="divition__subtitle">
           <strong>G:</strong>
           {data.GxBinary}
-        </p>
+        </h3>
       </section>
       <div className="divition__main">
         <h4 className="divition__main--title">{name}</h4>
